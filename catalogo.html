@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Catálogo</title>
+    <style>
+        /* Estilos para las imágenes */
+        .producto {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+        .producto img {
+            max-width: 200px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi Catálogo de Productos</h1>
+    
+    <div class="productos">
+        <!-- Aquí se insertarán las imágenes de los productos -->
+    </div>
+
+    <script>
+        // Array de objetos con la información de tus productos
+        const productos = [
+            { nombre: "Producto 1", imagen: "https://github.com/ShopTopSpain/Catalogo/blob/main/Camiseta.jpg", precio: "$65" },
+            { nombre: "Producto 1", imagen: "https://github.com/ShopTopSpain/Catalogo/blob/main/Camiseta2.jpg", precio: "$65" },
+            // Añade más productos según sea necesario
+        ];
+
+        // Insertar las imágenes de los productos en la página
+        const contenedorProductos = document.querySelector('.productos');
+
+        productos.forEach(producto => {
+            const divProducto = document.createElement('div');
+            divProducto.classList.add('producto');
+
+            const imagen = document.createElement('img');
+            imagen.src = producto.imagen;
+            imagen.alt = producto.nombre;
+
+            const precio = document.createElement('p');
+            precio.textContent = `Precio: ${producto.precio}`;
+
+            divProducto.appendChild(imagen);
+            divProducto.appendChild(precio);
+
+            contenedorProductos.appendChild(divProducto);
+        });
+    </script>
+</body>
+</html>
